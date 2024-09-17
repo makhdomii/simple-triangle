@@ -6,7 +6,7 @@ varying vec3 fragColor;
 
 void main(){
   fragColor = vertColor;
-  gl_Position = vec4(vertPosition, 0.0, 1.0); // Ensure correct vec4 components
+  gl_Position = vec4(vertPosition, 0.0, 1.0);
 }
 `;
 const fragmentShaderText = `
@@ -104,7 +104,7 @@ const InitDemo = () => {
   const positionAttribLocation = gl.getAttribLocation(program, "vertPosition");
   const colorAttribLocation = gl.getAttribLocation(program, "vertColor");
   gl.vertexAttribPointer(
-    positionAttribLocation, // Attribute Locaiton
+    positionAttribLocation, // Attribute Location
     2, // Number of elements per attribute
     gl.FLOAT, // type of elements
     gl.FALSE,
@@ -113,12 +113,12 @@ const InitDemo = () => {
   );
 
   gl.vertexAttribPointer(
-    colorAttribLocation, // Attribute Locaiton
-    3, // Number of elements per attribute
-    gl.FLOAT, // type of elements
+    colorAttribLocation,
+    3,
+    gl.FLOAT,
     gl.FALSE,
-    5 * Float32Array.BYTES_PER_ELEMENT, // size of an individual vertex
-    2 * Float32Array.BYTES_PER_ELEMENT // offset from the beginning of a single vertex to this attribute
+    5 * Float32Array.BYTES_PER_ELEMENT,
+    2 * Float32Array.BYTES_PER_ELEMENT
   );
   gl.enableVertexAttribArray(positionAttribLocation);
   gl.enableVertexAttribArray(colorAttribLocation);
